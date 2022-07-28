@@ -1,1 +1,5 @@
 /venv/
+/TestData/report/
+/TestData/temp/
+/本地用例上传云平台.py
+/用例预处理.py
