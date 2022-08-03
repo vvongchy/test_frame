@@ -4,11 +4,11 @@ from string import Template
 
 # TEMPLATE_PATH = pathlib.Path(__file__).parent.joinpath("template.txt")
 # RESULT_PATH = pathlib.Path(__file__).parent.joinpath("a.py")
-TEMPLATE_PATH = r"E:\test_work\test_frame\TestData\template\test_case.txt"
-RESULT_PATH = r"E:\test_work\test_frame\TestData\template\ab.py"
+TEMPLATE_PATH = r"/TestCase\template\test_case.txt"
+RESULT_PATH = r"/TestCase\template\ab.py"
 
 def generate_txt():
-    with open(r"../TestData/template/a.py", mode="r", encoding="utf-8") as r_f:
+    with open(r"../TestCase/template/a.py", mode="r", encoding="utf-8") as r_f:
         template_content = r_f.read()
         print(f"template_content:{template_content}")
         template = Template(template_content)

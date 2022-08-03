@@ -6,9 +6,6 @@ import numpy as np
 import pandas as pd
 import openpyxl
 
-from Log.LogEntity import LogUtil
-
-logger = LogUtil("test_project").getLogger()
 
 
 class ExcelUnit:
@@ -74,7 +71,7 @@ class ExcelUnit:
         script_name_array = df.loc[:, ["脚本名"]].values
         for script_name, i in zip(script_name_array, df.index.values):
             # loc为按列名索引 iloc 为按位置索引，使用的是 [[行号], [列名]]
-            df_line = df.loc[i, ['脚本类型', 'method', 'url', 'data_type', 'return_data_type', 'header', '备注']].to_dict()
+            df_line = df.loc[i, ['脚本类型', 'method', 'url', 'data_type', 'return_data_type', 'headers', 'cookies', '备注']].to_dict()
             # 将每一行转换成字典后添加到列表
             df_dict[str(script_name[0])] = df_line
         # pprint(df_dict)
@@ -142,15 +139,15 @@ class ExcelUnit:
         return L1
 
 
-if __name__ == '__main__':
-    a = ExcelUnit().read_front(r"E:\test_work\test_frame\TestFile\test_front.xlsx")
-    # print(a)
-    # ExcelUnit().read_data(r"E:\test_work\test_frame\TestFile\test_data.xlsx")
-    # ExcelUnit().read_script(r"E:\test_work\test_frame\TestFile\script.xlsx")
-    # ExcelUnit().read_case(r"E:\test_work\test_frame\TestFile\test_case.xlsx")
-    # ExcelUnit().read_test_data(r"E:\test_work\test_frame\TestFile\测试数据")
-
-    test_data_path = r"E:\test_work\test_frame\TestFile\测试数据"
-    a = ExcelUnit().format_data(r"E:\test_work\test_frame\TestFile\test_case.xlsx",
-                                r"E:\test_work\test_frame\TestFile\script.xlsx", test_data_path)
-    print(a)
+# if __name__ == '__main__':
+#     a = ExcelUnit().read_front(r"E:\test_work\test_frame\TestData\test_front.xlsx")
+#     # print(a)
+#     # ExcelUnit().read_data(r"E:\test_work\test_frame\TestData\test_data.xlsx")
+#     # ExcelUnit().read_script(r"E:\test_work\test_frame\TestData\script.xlsx")
+#     # ExcelUnit().read_case(r"E:\test_work\test_frame\TestData\test_case.xlsx")
+#     # ExcelUnit().read_test_data(r"E:\test_work\test_frame\TestData\测试数据")
+#
+#     test_data_path = r"E:\test_work\test_frame\TestData\测试数据"
+#     a = ExcelUnit().format_data(r"E:\test_work\test_frame\TestData\test_case.xlsx",
+#                                 r"E:\test_work\test_frame\TestData\script.xlsx", test_data_path)
+#     print(a)

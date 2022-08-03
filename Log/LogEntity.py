@@ -35,3 +35,5 @@ class LogUtil:
     def getLogger(self):
         return self.logger
 
+
+logger = LogUtil("test_project").getLogger()
